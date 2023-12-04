@@ -3,4 +3,5 @@ numpy ==  1.23.4
 plotly == 5.13.1
 dash == 2.14.1
 gunicorn
+dashboard
 
