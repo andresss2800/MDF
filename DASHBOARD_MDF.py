@@ -14,7 +14,7 @@ import openpyxl
 
 # %%
 "Leer Archivo"
-Tiempos = pd.read_excel('https://github.com/andresss2800/MDF/blob/main/TIEMPOS%20MONITOR.xlsx',engine='openpyxl')
+Tiempos = pd.read_excel('https://github.com/andresss2800/MDF/blob/main/data_MDF.xlsx')
 # Extraer de la fecha el mes
 Tiempos['Mes'] = Tiempos['Fecha'].dt.to_period('M')
 Tiempos['Mes_texto'] = Tiempos['Mes'].astype( str )
