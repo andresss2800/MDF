@@ -566,8 +566,7 @@ def update_graph8(Select_year):
     else:       
         
         Grafico = Tiempos[Tiempos['Mes_texto']==Select_year] 
-        pie = px.pie(Grafico,values='Cuenta',names='Novedad',title='Generación de MDF',hole=.3,height=200,
-        width=750)
+        pie = px.pie(Grafico,values='Cuenta',names='Novedad',title='Generación de MDF',hole=.3)
         pie.update_traces(textposition='inside', textinfo='percent+label')
         pie.update_layout(showlegend=False)
         
