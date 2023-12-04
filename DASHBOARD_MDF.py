@@ -10,10 +10,11 @@ from statistics import mean
 from dash import dash, html, dcc
 import plotly.graph_objs as go # Renderiza objetos de plotly
 from dash.dependencies import Input, Output # Para usar en los callbacks
+import openpyxl
 
 # %%
 "Leer Archivo"
-Tiempos = pd.read_csv('https://github.com/andresss2800/MDF/blob/main/TIEMPOS_MONITOR.csv',sep=";")
+Tiempos = pd.read_excel('https://github.com/andresss2800/MDF/blob/main/TIEMPOS%20MONITOR.xlsx',engine='openpyxl')
 # Extraer de la fecha el mes
 Tiempos['Mes'] = Tiempos['Fecha'].dt.to_period('M')
 Tiempos['Mes_texto'] = Tiempos['Mes'].astype( str )
