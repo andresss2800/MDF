@@ -52,6 +52,8 @@ Fallas_MDF['Novedad']= np.where(Fallas_MDF['Falla']!= 'Sin novedad','Novedad','S
 # %%
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+server = app.server
 app.layout = html.Div(className='two-thirds',children =[
 
 #Título y subtítulo
