@@ -13,7 +13,7 @@ from dash.dependencies import Input, Output # Para usar en los callbacks
 
 # %%
 "Leer Archivo"
-Tiempos = pd.read_excel('https://github.com/andresss2800/MDF/blob/main/TIEMPOS%20MONITOR.xlsx',engine='openpyxl')
+Tiempos = pd.read_csv('https://github.com/andresss2800/MDF/blob/main/TIEMPOS%20MONITOR.xlsx')
 # Extraer de la fecha el mes
 Tiempos['Mes'] = Tiempos['Fecha'].dt.to_period('M')
 Tiempos['Mes_texto'] = Tiempos['Mes'].astype( str )
