@@ -4,9 +4,7 @@
 """Importar Librerias"""
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import plotly.express as px
 from statistics import mean
 from dash import dash, html, dcc
