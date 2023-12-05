@@ -19,6 +19,8 @@ Tiempos = pd.read_excel('data_MDF.xlsx',engine='openpyxl')
 Tiempos['Mes'] = Tiempos['Fecha'].dt.to_period('M')
 Tiempos['Mes_texto'] = Tiempos['Mes'].astype( str )
 Tiempos['Novedad']= np.where(Tiempos['Falla']!= 'Sin novedad','Novedad','Sin novedad')
+Tiempos['Dia de la semana']= Tiempos['Fecha'].dt.dayofweek
+Tiempos['Dia de la semana'] = Tiempos['Dia de la semana'].replace({0: 'Lunes', 1: 'Martes',2: 'Miércoles',3: 'Jueves',4: 'Viernes'})
 Tiempos['Cuenta']= 1
 
 # %%
@@ -153,6 +155,21 @@ html.Div(className='six columns',
            children=[ dcc.Graph(id='lineplot',figure={})
         
             ],style={'width':'92%'}),
+
+# Título Tiempo según día
+
+html.Div(className='five columns',children=[
+          
+          html.Br(style={"line-height": "20"}),  
+          html.H2('Tiempos por día',style={'text-align':'left','color':'blue'}),
+          html.Br(style={"line-height": "20"}) ]),
+
+
+html.Div(className='six columns',
+        
+           children=[ dcc.Graph(id='barplot_day',figure={})
+        
+            ],style={'width':'92%'}),    
 
 
 #"Título Fallas"
@@ -573,6 +590,27 @@ def update_graph8(Select_year):
     
     return pie
 
+@app.callback(Output('barplot_day','figure'),[Input('Select_year','value')])
+
+def update_graph9(Select_year):
+    
+    if Select_year == None:
+        
+        dia = px.bar(Tiempos.groupby(['Dia de la semana'])['Tiempo'].mean().reset_index(),x='Dia de la semana',y= 'Tiempo',title='Promedio tiempos por día'
+             ,color='Dia de la semana'
+        )
+
+        dia.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'},showlegend=False)
+        
+        
+    else:       
+        Grafico = Tiempos[Tiempos['Mes_texto']==Select_year] 
+        dia = px.bar(Grafico.groupby(['Dia de la semana','Mes'])['Tiempo'].mean().reset_index(),x='Dia de la semana',y= 'Tiempo',title='Promedio tiempos por día'
+             ,color='Mes'
+        )
+        dia.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+        
+    return dia   
 
 if __name__ == '__main__':
     app.run_server(debug=True)
