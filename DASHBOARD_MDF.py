@@ -72,6 +72,22 @@ html.Div([
             ]),
                html.Br(style={"line-height": "20"}) ]),
 
+#"Título Promedio de tiempo"
+
+html.Div(className='five columns',children=[
+          
+          html.Br(style={"line-height": "20"}),  
+          html.H2('Promedio de Tiempos',style={'text-align':'left','color':'blue'}),
+          html.Br(style={"line-height": "20"}) ]),
+
+#"Gráfico de líneas promedio de tiempos "
+
+html.Div(className='six columns',
+        
+           children=[ dcc.Graph(id='lineplot',figure={}),html.Br(style={"line-height": "20"})
+        
+            ],style={'width':'92%'}),    
+
 #"Lista desplegable"
         
 html.Div(className='row',children=  [ dcc.Dropdown(id='Select_year',
@@ -140,21 +156,7 @@ html.Div(className='five columns',
         
             ],style={'width':'45%'}),
 
-#"Título Promedio de tiempo"
 
-html.Div(className='five columns',children=[
-          
-          html.Br(style={"line-height": "20"}),  
-          html.H2('Promedio de Tiempos',style={'text-align':'left','color':'blue'}),
-          html.Br(style={"line-height": "20"}) ]),
-
-#"Gráfico de líneas promedio de tiempos "
-
-html.Div(className='six columns',
-        
-           children=[ dcc.Graph(id='lineplot',figure={})
-        
-            ],style={'width':'92%'}),
 
 # Título Tiempo según día
 
@@ -218,7 +220,7 @@ def update_graph4(Select_year):
         KPI1.add_trace(go.Indicator(
         align = 'center',mode='number',value=Numero_de_Dias,
         title={
-        'text':'Número de días',
+        'text':'Número de <br>mediciones',
         'font':{
             'size':40
             }
@@ -239,7 +241,7 @@ def update_graph4(Select_year):
         KPI1.add_trace(go.Indicator(
         align = 'center',mode='number',value=Numero_de_Dias,
         title={
-        'text':'Número de días',
+        'text':'Número de <br>mediciones',
         'font':{
             'size':40
             }
@@ -266,7 +268,7 @@ def update_graph5(Select_year):
         KPI2.add_trace(go.Indicator(
             align = 'center',mode='number',value=Tiempo_Promedio,
             title={
-            'text':'Tiempo Promedio',
+            'text':'Tiempo Promedio <br>(min)',
             'font':{
             'size':40
             }
@@ -288,7 +290,7 @@ def update_graph5(Select_year):
         KPI2.add_trace(go.Indicator(
             align = 'center',mode='number',value=Tiempo_Promedio,
             title={
-            'text':'Tiempo Promedio',
+            'text':'Tiempo Promedio <br>(min)',
             'font':{
             'size':40
             }
@@ -314,9 +316,9 @@ def update_graph6(Select_year):
         KPI3.add_trace(go.Indicator(
             align = 'center',mode='number',value=Tiempo_Promedio_Ultima_Semana,
             title={
-            'text':'Tiempo prom última semana',
+            'text':'Tiempo promedio <br> última semana <br>(min)',
             'font':{
-            'size':25
+            'size':40
             }
          }   
             )
@@ -334,9 +336,9 @@ def update_graph6(Select_year):
         KPI3.add_trace(go.Indicator(
             align = 'center',mode='number',value=Tiempo_Promedio_Ultima_Semana,
             title={
-            'text':'Tiempo prom última semana',
+            'text':'Tiempo promedio <br> última semana <br>(min)',
             'font':{
-            'size':25
+            'size':40
             }
          }   
             )
