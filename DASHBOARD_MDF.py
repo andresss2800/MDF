@@ -466,7 +466,7 @@ def update_graph_3(Select_year):
             bgcolor="#CFECEC"
             , opacity=0.8)
 
-    Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
+     Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
                          x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
             text='Fallas scripts <br> y memoria',
             showarrow=False,
