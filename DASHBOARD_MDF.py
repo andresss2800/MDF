@@ -1,4 +1,6 @@
+# **DASH**
 
+# %%
 """Importar Librerias"""
 
 import pandas as pd
@@ -10,10 +12,9 @@ import plotly.graph_objs as go # Renderiza objetos de plotly
 from dash.dependencies import Input, Output # Para usar en los callbacks
 import openpyxl
 
-
 # %%
 "Leer Archivo"
-Tiempos = pd.read_excel('data_MDF.xlsx') 
+Tiempos = pd.read_excel('data_MDF.xlsx',engine='openpyxl')
 # Extraer de la fecha el mes
 Tiempos['Mes'] = Tiempos['Fecha'].dt.to_period('M')
 Tiempos['Mes_texto'] = Tiempos['Mes'].astype( str )
@@ -638,13 +639,4 @@ def update_graph9(Select_year):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-    
-
-   
-    
-
-# %%
-text = 'Tiempo promedio'+'\n'+'min'
-print(text)
-
 
