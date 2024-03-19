@@ -2,21 +2,18 @@
 """Importar Librerias"""
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import plotly.express as px
 from statistics import mean
 from dash import dash, html, dcc
 import plotly.graph_objs as go # Renderiza objetos de plotly
 from dash.dependencies import Input, Output # Para usar en los callbacks
 import openpyxl
-import calendar
-from datetime import datetime
+
 
 # %%
 "Leer Archivo"
-Tiempos = pd.read_excel('C:/Users/OmarAndresMontanezMu/OneDrive - ASOCIACION DE FIDUCIARIAS/Escritorio/2023/OTROS/TIEMPOS MONITOR.xlsx') 
+Tiempos = pd.read_excel('data_MDF.xlsx') 
 # Extraer de la fecha el mes
 Tiempos['Mes'] = Tiempos['Fecha'].dt.to_period('M')
 Tiempos['Mes_texto'] = Tiempos['Mes'].astype( str )
