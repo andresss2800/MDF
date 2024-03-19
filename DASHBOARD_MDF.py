@@ -53,6 +53,8 @@ Fallas_MDF['Novedad']= np.where(Fallas_MDF['Falla']!= 'Sin novedad','Novedad','S
 # %%
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+server = app.server
 app.layout = html.Div(className='two-thirds',children =[
 
 #Título y subtítulo
@@ -70,8 +72,6 @@ html.Div([
             ]),
                html.Br(style={"line-height": "20"}) ]),
 
-
-
 #"Título Promedio de tiempo"
 
 html.Div(className='five columns',children=[
@@ -86,7 +86,7 @@ html.Div(className='six columns',
         
            children=[ dcc.Graph(id='lineplot',figure={}),html.Br(style={"line-height": "20"})
         
-            ],style={'width':'92%'}),
+            ],style={'width':'92%'}),    
 
 #"Lista desplegable"
         
@@ -171,7 +171,7 @@ html.Div(className='six columns',
         
            children=[ dcc.Graph(id='barplot_day',figure={})
         
-            ],style={'width':'92%'}),
+            ],style={'width':'92%'}),    
 
 
 #"Título Fallas"
@@ -261,8 +261,7 @@ def update_graph5(Select_year):
         
         Tiempo_Promedio = round(Tiempos['Tiempo'].mean(),2)
         Max_mes= Tiempos['Mes_texto'].max()
-        
-         
+  
 
         KPI2 = go.Figure()
 
@@ -432,7 +431,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[2] , y=33,
+                         x=Tiempos_por_mes['Mes'].iloc[2] , y=28.1,
             text='Ajuste Scripts <br> Web Scrapping',
             showarrow=False,
             yshift=20,
@@ -441,7 +440,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[3] , y=31,
+                         x=Tiempos_por_mes['Mes'].iloc[3] , y=26.8,
             text='Script para <br> archivo SFC',
             showarrow=False,
             yshift=20,
@@ -450,7 +449,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[4] , y=30,
+                         x=Tiempos_por_mes['Mes'].iloc[4] , y=28.2,
             text='Script para <br> completar sondeo',
             showarrow=False,
             yshift=20,
@@ -461,15 +460,6 @@ def update_graph_3(Select_year):
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
                          x=Tiempos_por_mes['Mes'].iloc[6] , y=32.2,
             text='Fallas scripts <br> y memoria',
-            showarrow=False,
-            yshift=20,
-            bordercolor='black',
-            bgcolor="#CFECEC"
-            , opacity=0.8)
-     
-     Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
-            text='Incorporación scripts <br> transformación data',
             showarrow=False,
             yshift=20,
             bordercolor='black',
@@ -517,7 +507,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[2] , y=33,
+                         x=Tiempos_por_mes['Mes'].iloc[2] , y=28.1,
             text='Ajuste Scripts <br> Web Scrapping',
             showarrow=False,
             yshift=20,
@@ -526,7 +516,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[3] , y=31,
+                         x=Tiempos_por_mes['Mes'].iloc[3] , y=26.8,
             text='Script para <br> archivo SFC',
             showarrow=False,
             yshift=20,
@@ -535,7 +525,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[4] , y=30,
+                         x=Tiempos_por_mes['Mes'].iloc[4] , y=28.2,
             text='Script para <br> completar sondeo',
             showarrow=False,
             yshift=20,
@@ -551,21 +541,10 @@ def update_graph_3(Select_year):
             bordercolor='black',
             bgcolor="#CFECEC"
             , opacity=0.8)
-        
-        Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
-            text='Incorporación scripts <br> transformación data',
-            showarrow=False,
-            yshift=20,
-            bordercolor='black',
-            bgcolor="#CFECEC"
-            , opacity=0.8)
               
         Line.update_traces(textposition= 'top center')
             
     return Line
-
-
 
 @app.callback(Output('Barras_Fallas','figure'),[Input('Select_year','value')])
 
@@ -613,7 +592,6 @@ def update_graph8(Select_year):
     
     return pie
 
-
 @app.callback(Output('barplot_day','figure'),[Input('Select_year','value')])
 
 def update_graph9(Select_year):
@@ -634,8 +612,7 @@ def update_graph9(Select_year):
         )
         dia.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
         
-    return dia    
-
+    return dia   
 
 if __name__ == '__main__':
     app.run_server(debug=True)
