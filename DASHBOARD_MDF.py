@@ -431,7 +431,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[2] , y=28.1,
+                         x=Tiempos_por_mes['Mes'].iloc[2] , y=33,
             text='Ajuste Scripts <br> Web Scrapping',
             showarrow=False,
             yshift=20,
@@ -440,7 +440,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[3] , y=26.8,
+                         x=Tiempos_por_mes['Mes'].iloc[3] , y=31,
             text='Script para <br> archivo SFC',
             showarrow=False,
             yshift=20,
@@ -449,7 +449,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[4] , y=28.2,
+                         x=Tiempos_por_mes['Mes'].iloc[4] , y=30,
             text='Script para <br> completar sondeo',
             showarrow=False,
             yshift=20,
@@ -459,6 +459,15 @@ def update_graph_3(Select_year):
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
                          x=Tiempos_por_mes['Mes'].iloc[6] , y=32.2,
+            text='Fallas scripts <br> y memoria',
+            showarrow=False,
+            yshift=20,
+            bordercolor='black',
+            bgcolor="#CFECEC"
+            , opacity=0.8)
+
+    Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
+                         x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
             text='Fallas scripts <br> y memoria',
             showarrow=False,
             yshift=20,
@@ -507,7 +516,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[2] , y=28.1,
+                         x=Tiempos_por_mes['Mes'].iloc[2] , y=33,
             text='Ajuste Scripts <br> Web Scrapping',
             showarrow=False,
             yshift=20,
@@ -516,7 +525,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[3] , y=26.8,
+                         x=Tiempos_por_mes['Mes'].iloc[3] , y=31,
             text='Script para <br> archivo SFC',
             showarrow=False,
             yshift=20,
@@ -525,7 +534,7 @@ def update_graph_3(Select_year):
             , opacity=0.8)
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
-                         x=Tiempos_por_mes['Mes'].iloc[4] , y=28.2,
+                         x=Tiempos_por_mes['Mes'].iloc[4] , y=30,
             text='Script para <br> completar sondeo',
             showarrow=False,
             yshift=20,
@@ -535,6 +544,15 @@ def update_graph_3(Select_year):
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
                          x=Tiempos_por_mes['Mes'].iloc[6] , y=32.2,
+            text='Fallas scripts <br> y memoria',
+            showarrow=False,
+            yshift=20,
+            bordercolor='black',
+            bgcolor="#CFECEC"
+            , opacity=0.8)
+
+        Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
+                         x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
             text='Fallas scripts <br> y memoria',
             showarrow=False,
             yshift=20,
