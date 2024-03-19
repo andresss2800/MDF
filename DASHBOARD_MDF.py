@@ -468,7 +468,7 @@ def update_graph_3(Select_year):
 
      Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
                          x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
-            text='Fallas scripts <br> y memoria',
+            text='Incorporacion scripts <br> transformación data',
             showarrow=False,
             yshift=20,
             bordercolor='black',
@@ -553,7 +553,7 @@ def update_graph_3(Select_year):
 
         Line.add_annotation(font=dict(color='black',size=8,family="Arial Black"),
                          x=Tiempos_por_mes['Mes'].iloc[9] , y=29,
-            text='Fallas scripts <br> y memoria',
+            text='Incorporacion scripts <br> transformación data',
             showarrow=False,
             yshift=20,
             bordercolor='black',
